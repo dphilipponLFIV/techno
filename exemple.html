@@ -50,7 +50,7 @@
         marker.addEventListener('markerFound', () => {
           // Si un autre marqueur était affiché, on ne le remplace que si c'est un nouveau
           if (currentVisibleMarker !== markerId) {
-            hud.textContent = markerTexts[markerId];
+            hud.innerHTML = markerTexts[markerId];
             hud.style.display = 'block';
             currentVisibleMarker = markerId;
           }
