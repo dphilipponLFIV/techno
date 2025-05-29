@@ -16,11 +16,14 @@
         z-index: 1000;
         min-width: 200px;
         font-size: 1.2em;
+        max-height: 300px;
+        width: 30%; 
+        overflow: scroll;
       }
     </style>
   </head>
   <body style="margin:0;">
-    <div id="hud" style="width: 30%; overflow: scroll"></div>
+    <div id="hud"></div>
     <a-scene embedded arjs>
       <a-marker id="hiroMarker" preset="hiro">
          <a-entity 
