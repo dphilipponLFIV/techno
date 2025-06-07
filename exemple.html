@@ -25,13 +25,6 @@
   <body style="margin:0;">
     <div id="hud"></div>
     <a-scene embedded arjs>
-      <a-marker id="AkFa" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-output_AkFa.patt">
-        <a-entity 
-            gltf-model="https://dphilipponlfiv.github.io/techno/textures/pieta.gltf"
-            position="-1 0 0"
-            scale="0.025 0.025 0.025"
-            rotation="-90 0 0">
-          </a-entity>
       </a-marker>
       <a-marker id="hiroMarker" preset="hiro">
          <a-entity 
@@ -81,6 +74,16 @@
         }
         // Ajoutez d'autres marqueurs si besoin
       };
+      function generateHudContent(info) {
+        return `
+          <h2>${info.titre}</h2>
+          <strong>Auteur :</strong> ${info.auteur}<br/>
+          <strong>Année :</strong> ${info.annee}<br/>
+          <strong>Lieu de conservation :</strong> ${info.lieu}<br/><br/>
+          <strong>Description :</strong><br/>${info.description}<br/><br/>
+          <strong>Opinion :</strong><br/>${info.opinion}
+        `;
+      }
 
       // Liste des marqueurs à surveiller
       const markerIds = Object.keys(markerInfos);
@@ -94,7 +97,7 @@
         marker.addEventListener('markerFound', () => {
           // Si un autre marqueur était affiché, on ne le remplace que si c'est un nouveau
           if (currentVisibleMarker !== markerId) {
-            hud.innerHTML = markerInfos[markerId];
+            hud.innerHTML = generateHudContent(markerInfos[markerId]);
             hud.style.display = 'block';
             currentVisibleMarker = markerId;
           }
