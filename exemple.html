@@ -1,96 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>LFIV Semaine des Arts</title>
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/dev/aframe/build/aframe-ar.js"></script>
-    <style>
-      #hud {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        background: rgba(0,0,0,0.7);
-        color: white;
-        padding: 15px;
-        border-radius: 8px;
-        display: none;
-        z-index: 1000;
-        min-width: 200px;
-        font-size: 1.2em;
-        max-height: 300px;
-        width: 30%; 
-        overflow: scroll;
-      }
-      strong {
-        color: #FFD700;
-      }
-      h2 {
-        margin-top: 0;
-        margin-bottom: 8px;
-        color: #99ccff;
-      }
-    </style>
-  </head>
-  <body style="margin:0;">
+    <!-- Version stable d'A-Frame et AR.js -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ar-js-org/ar.js@3.3.0/aframe/build/aframe-ar.js"></script>
+    <style>/* ... conservez votre CSS existant ... */</style>
+</head>
+<body style="margin:0;">
     <div id="hud"></div>
     <a-scene 
-      embedded 
-      arjs
+        embedded 
+        arjs="sourceType: webcam; debugUIEnabled: false;"
+        renderer="antialias: true; alpha: true"
     >
-      <!-- Marqueur personnalisé AkFa -->
-      <a-marker 
-        id="AkFa" 
-        type="pattern" 
-        patternUrl="https://dphilipponlfiv.github.io/techno/markers/pattern-output_AkFa.patt"
-        emitevents="true"
-      >
-        <!-- Utilisez ce modèle de test pour vérifier le fonctionnement de la scène -->
-        <a-entity 
-          gltf-model="https://dphilipponlfiv.github.io/techno/textures/pieta.gltf"
-          position="-1 0 0"
-          scale="0.025 0.025 0.025"
-          rotation="-90 0 0">
-        </a-entity>
-      </a-marker>
-
-      <a-entity camera></a-entity>
+        <a-marker 
+            id="AkFa" 
+            type="pattern" 
+            url="https://dphilipponlfiv.github.io/techno/markers/pattern-output_AkFa.patt"
+        >
+            <a-entity
+                gltf-model="url(https://dphilipponlfiv.github.io/techno/textures/pieta.gltf)"
+                scale="0.025 0.025 0.025"
+                rotation="-90 0 0"
+            ></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
     </a-scene>
 
     <script>
-      const markerInfos = {
-        AkFa: {
-          titre: "La Pietà",
-          auteur: "Michel-Ange",
-          annee: "1498-1499",
-          lieu: "Basilique Saint-Pierre, Vatican, Rome",
-          description: "La Pietà (prononcé : [pjeˈta]) est un groupe en marbre représentant la Vierge Marie tenant le corps du Christ descendu de la Croix, sculpté entre 1498 et 1499.",
-          opinion: "Chef-d'œuvre emblématique de la Renaissance, la Pietà impressionne par la délicatesse de ses détails et l'émotion qu'elle suscite."
-        }
-      };
+        // Version simplifiée du script
+        const hud = document.getElementById('hud');
+        const marker = document.getElementById('AkFa');
 
-      function generateHudContent(info) {
-        return `
-          <h2>${info.titre}</h2>
-          <strong>Auteur :</strong> ${info.auteur}<br/>
-          <strong>Année :</strong> ${info.annee}<br/>
-          <strong>Lieu :</strong> ${info.lieu}<br/><br/>
-          <strong>Description :</strong><br/>${info.description}<br/><br/>
-          <strong>Opinion :</strong><br/>${info.opinion}
-        `;
-      }
+        marker.addEventListener('markerFound', () => {
+            hud.style.display = 'block';
+            hud.innerHTML = `<h2>La Pietà</h2>Michel-Ange • 1498-1499`;
+        });
 
-      const hud = document.getElementById('hud');
-      const marker = document.getElementById('AkFa');
-
-      marker.addEventListener('markerFound', () => {
-        hud.innerHTML = generateHudContent(markerInfos.AkFa);
-        hud.style.display = 'block';
-      });
-
-      marker.addEventListener('markerLost', () => {
-        hud.style.display = 'none';
-      });
+        marker.addEventListener('markerLost', () => {
+            hud.style.display = 'none';
+        });
     </script>
-  </body>
+</body>
 </html>
