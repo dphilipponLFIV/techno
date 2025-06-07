@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <title>AR.js HUD Structuré</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/dev/aframe/build/aframe-ar.js"></script>
     <style>
@@ -20,6 +22,14 @@
         width: 30%; 
         overflow: scroll;
       }
+      strong {
+        color: #FFD700;
+      }
+      h2 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        color: #99ccff;
+      }
     </style>
   </head>
   <body style="margin:0;">
@@ -31,7 +41,7 @@
             position="-1 0 0"
             scale="0.025 0.025 0.025"
             rotation="-90 0 0">
-          </a-entity>
+        </a-entity>
       </a-marker>
       <a-marker id="hiroMarker" preset="hiro">
          <a-entity 
@@ -39,7 +49,7 @@
             position="-1 0 0"
             scale="0.025 0.025 0.025"
             rotation="-90 0 0">
-          </a-entity>
+         </a-entity>
       </a-marker>
       <a-marker id="kanjiMarker" preset="kanji">
         <a-sphere position="0 0.5 0" color="#EF2D5E"></a-sphere>
@@ -47,16 +57,41 @@
       <a-entity camera></a-entity>
     </a-scene>
     <script>
-      // Texte associé à chaque marqueur
-      const markerTexts = {
-        hiroMarker: "<h2>La Pietà</h2>La Pietà (prononcé : [pjeˈta]) est un groupe en marbre de Michel-Ange de la basilique Saint-Pierre du Vatican à Rome, <br/>représentant le thème biblique de la « Vierge Marie douloureuse » (Mater dolorosa en latin ou Pietà)<br/>, tenant sur ses genoux le corps du Christ descendu de la Croix <br/> avant sa Mise au tombeau, sa Résurrection et son Ascension. <br/>Elle est sculptée entre 1498 et 1499. ",
-        kanjiMarker: "Vous avez détecté le marqueur Kanji ! Ce marqueur utilise la touche entrée !"
-        // Ajoutez ici d'autres marqueurs si besoin
+      // Informations structurées pour chaque marqueur
+      const markerInfos = {
+        hiroMarker: {
+          titre: "La Pietà",
+          auteur: "Michel-Ange",
+          annee: "1498-1499",
+          lieu: "Basilique Saint-Pierre, Vatican, Rome",
+          description: "La Pietà (prononcé : [pjeˈta]) est un groupe en marbre représentant la Vierge Marie tenant le corps du Christ descendu de la Croix, sculpté entre 1498 et 1499.",
+          opinion: "Chef-d'œuvre emblématique de la Renaissance, la Pietà impressionne par la délicatesse de ses détails et l'émotion qu'elle suscite."
+        },
+        kanjiMarker: {
+          titre: "Marqueur Kanji",
+          auteur: "AR.js",
+          annee: "2025",
+          lieu: "Expérience de démonstration",
+          description: "Ce marqueur sert d'exemple pour la détection de symboles Kanji dans une scène AR.",
+          opinion: "Utile pour tester la reconnaissance de marqueurs standards dans AR.js."
+        }
+        // Ajoutez d'autres marqueurs ici si besoin
       };
 
-      // Liste des marqueurs à surveiller
-      const markerIds = Object.keys(markerTexts);
+      // Génère le HTML du HUD à partir des infos
+      function generateHudContent(info) {
+        return `
+          <h2>${info.titre}</h2>
+          <strong>Auteur :</strong> ${info.auteur}<br/>
+          <strong>Année :</strong> ${info.annee}<br/>
+          <strong>Lieu de conservation :</strong> ${info.lieu}<br/><br/>
+          <strong>Description :</strong><br/>${info.description}<br/><br/>
+          <strong>Opinion :</strong><br/>${info.opinion}
+        `;
+      }
 
+      // Gestion des événements de détection de marqueur
+      const markerIds = Object.keys(markerInfos);
       const hud = document.getElementById('hud');
       let currentVisibleMarker = null;
 
@@ -64,16 +99,14 @@
         const marker = document.getElementById(markerId);
 
         marker.addEventListener('markerFound', () => {
-          // Si un autre marqueur était affiché, on ne le remplace que si c'est un nouveau
           if (currentVisibleMarker !== markerId) {
-            hud.innerHTML = markerTexts[markerId];
+            hud.innerHTML = generateHudContent(markerInfos[markerId]);
             hud.style.display = 'block';
             currentVisibleMarker = markerId;
           }
         });
 
         marker.addEventListener('markerLost', () => {
-          // Si le marqueur perdu est celui actuellement affiché, on masque le HUD
           if (currentVisibleMarker === markerId) {
             hud.style.display = 'none';
             currentVisibleMarker = null;
