@@ -25,9 +25,9 @@
   <body style="margin:0;">
     <div id="hud"></div>
     <a-scene embedded arjs>
-      <a-marker id="hiroMarker" preset="hiro">
-         <a-entity 
-            gltf-model="https://dphilipponlfiv.github.io/techno/textures/pieta.gltf"
+      <a-marker id="ArDu" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-output_ArDu.patt">
+        <a-entity 
+            gltf-model="https://dphilipponlfiv.github.io/techno/textures/ArDu.gltf"
             position="-1 0 0"
             scale="0.025 0.025 0.025"
             rotation="-90 0 0">
@@ -45,13 +45,13 @@
     </a-scene>
     <script>
       const markerInfos = {
-        hiroMarker: {
-          titre: "La Pietà",
-          auteur: "Michel-Ange",
-          annee: "1498-1499",
-          lieu: "Basilique Saint-Pierre, Vatican, Rome",
-          description: "La Pietà (prononcé : [pjeˈta]) est un groupe en marbre représentant la Vierge Marie tenant le corps du Christ descendu de la Croix, sculpté entre 1498 et 1499.",
-          opinion: "Chef-d'œuvre emblématique de la Renaissance, la Pietà impressionne par la délicatesse de ses détails et l'émotion qu'elle suscite."
+        ArDu: {
+          titre: "La grande vague de Kanagawa",
+          auteur: "Katsushika Hokusai",
+          annee: "1831",
+          lieu: "????",
+          description: "????",
+          opinion: "C'est très beau"
         },
         AkFa: {
           titre: "Agnus",
