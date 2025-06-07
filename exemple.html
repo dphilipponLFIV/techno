@@ -34,7 +34,11 @@
   </head>
   <body style="margin:0;">
     <div id="hud"></div>
-    <a-scene embedded arjs>
+    <a-scene 
+      embedded 
+      arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+    >
       <!-- Marqueur personnalisé AkFa -->
       <a-marker id="AkFa" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-output_AkFa.patt">
         <a-entity 
@@ -75,32 +79,19 @@
       // Gestion des événements
       const hud = document.getElementById('hud');
       let currentVisibleMarker = null;
-
-      Object.keys(markerInfos).forEach(markerId => {
-        const marker = document.getElementById(markerId);
-        const entity = marker.querySelector('a-entity, a-sphere');
-
-        marker.addEventListener('markerFound', () => {
-          if (currentVisibleMarker !== markerId) {
-            // Affiche le HUD
-            hud.innerHTML = generateHudContent(markerInfos[markerId]);
-            hud.style.display = 'block';
-            
-            // Affiche le modèle 3D
-            currentVisibleMarker = markerId;
-          }
-        });
-
-        marker.addEventListener('markerLost', () => {
-          if (currentVisibleMarker === markerId) {
-            // Masque le HUD
-            hud.style.display = 'none';
-            
-            // Masque le modèle 3D
-            currentVisibleMarker = null;
-          }
-        });
+      document.querySelector('a-scene').addEventListener('markerFound', (e) => {
+        if(e.target.id === 'AkFa') {
+          hud.innerHTML = generateHudContent(markerInfos.AkFa);
+          hud.style.display = 'block';
+        }
       });
+      document.querySelector('a-scene').addEventListener('markerFound', (e) => {
+        if(e.target.id === 'AkFa') {
+          hud.innerHTML = generateHudContent(markerInfos.AkFa);
+          hud.style.display = 'block';
+        }
+      });
+
     </script>
   </body>
 </html>
