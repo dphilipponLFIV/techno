@@ -40,13 +40,20 @@
       renderer="logarithmicDepthBuffer: true;"
     >
       <!-- Marqueur personnalisé AkFa -->
-      <a-marker id="AkFa" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-output_AkFa.patt">
+      <a-marker 
+        id="AkFa" 
+        type="pattern" 
+        patternUrl="https://dphilipponlfiv.github.io/techno/markers/pattern-output_AkFa.patt"
+        emitevents="true"
+      >
+        <!-- Utilisez ce modèle de test pour vérifier le fonctionnement de la scène -->
         <a-entity 
-            gltf-model="https://dphilipponlfiv.github.io/techno/textures/pieta.gltf"
-            position="-1 0 0"
-            scale="0.025 0.025 0.025"
-            rotation="-90 0 0">
+          gltf-model="https://arjs-cdn.s3.us-west-2.amazonaws.com/arjs/models/simple/ring.gltf"
+          position="-1 0 0"
+          scale="0.025 0.025 0.025"
+          rotation="-90 0 0">
         </a-entity>
+        <!-- Quand ça fonctionne, remplacez l’URL gltf-model par la vôtre -->
       </a-marker>
 
       <a-entity camera></a-entity>
@@ -64,7 +71,6 @@
         }
       };
 
-      // Génère le HTML du HUD
       function generateHudContent(info) {
         return `
           <h2>${info.titre}</h2>
@@ -76,22 +82,17 @@
         `;
       }
 
-      // Gestion des événements
       const hud = document.getElementById('hud');
-      let currentVisibleMarker = null;
-      document.querySelector('a-scene').addEventListener('markerFound', (e) => {
-        if(e.target.id === 'AkFa') {
-          hud.innerHTML = generateHudContent(markerInfos.AkFa);
-          hud.style.display = 'block';
-        }
-      });
-      document.querySelector('a-scene').addEventListener('markerFound', (e) => {
-        if(e.target.id === 'AkFa') {
-          hud.innerHTML = generateHudContent(markerInfos.AkFa);
-          hud.style.display = 'block';
-        }
+      const marker = document.getElementById('AkFa');
+
+      marker.addEventListener('markerFound', () => {
+        hud.innerHTML = generateHudContent(markerInfos.AkFa);
+        hud.style.display = 'block';
       });
 
+      marker.addEventListener('markerLost', () => {
+        hud.style.display = 'none';
+      });
     </script>
   </body>
 </html>
