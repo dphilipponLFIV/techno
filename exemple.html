@@ -35,27 +35,36 @@
   <body style="margin:0;">
     <div id="hud"></div>
     <a-scene embedded arjs>
+      <!-- Marqueur personnalisé AkFa -->
       <a-marker id="AkFa" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-output_AkFa.patt">
         <a-entity 
             gltf-model="https://dphilipponlfiv.github.io/techno/textures/pieta.gltf"
             position="-1 0 0"
             scale="0.025 0.025 0.025"
-            rotation="-90 0 0">
+            rotation="-90 0 0"
+            visible="false">
         </a-entity>
       </a-marker>
+
+      <!-- Marqueur Hiro -->
       <a-marker id="hiroMarker" preset="hiro">
          <a-entity 
             gltf-model="https://dphilipponlfiv.github.io/techno/textures/pieta.gltf"
             position="-1 0 0"
             scale="0.025 0.025 0.025"
-            rotation="-90 0 0">
+            rotation="-90 0 0"
+            visible="false">
          </a-entity>
       </a-marker>
+
+      <!-- Marqueur Kanji -->
       <a-marker id="kanjiMarker" preset="kanji">
-        <a-sphere position="0 0.5 0" color="#EF2D5E"></a-sphere>
+        <a-sphere position="0 0.5 0" color="#EF2D5E" visible="false"></a-sphere>
       </a-marker>
+
       <a-entity camera></a-entity>
     </a-scene>
+
     <script>
       // Informations structurées pour chaque marqueur
       const markerInfos = {
@@ -83,40 +92,47 @@
           description: "Ce marqueur sert d'exemple pour la détection de symboles Kanji dans une scène AR.",
           opinion: "Utile pour tester la reconnaissance de marqueurs standards dans AR.js."
         }
-        // Ajoutez d'autres marqueurs ici si besoin
       };
 
-      // Génère le HTML du HUD à partir des infos
+      // Génère le HTML du HUD
       function generateHudContent(info) {
         return `
           <h2>${info.titre}</h2>
           <strong>Auteur :</strong> ${info.auteur}<br/>
           <strong>Année :</strong> ${info.annee}<br/>
-          <strong>Lieu de conservation :</strong> ${info.lieu}<br/><br/>
+          <strong>Lieu :</strong> ${info.lieu}<br/><br/>
           <strong>Description :</strong><br/>${info.description}<br/><br/>
           <strong>Opinion :</strong><br/>${info.opinion}
         `;
       }
 
-      // Gestion des événements de détection de marqueur
-      const markerIds = Object.keys(markerInfos);
+      // Gestion des événements
       const hud = document.getElementById('hud');
       let currentVisibleMarker = null;
 
-      markerIds.forEach(markerId => {
+      Object.keys(markerInfos).forEach(markerId => {
         const marker = document.getElementById(markerId);
+        const entity = marker.querySelector('a-entity, a-sphere');
 
         marker.addEventListener('markerFound', () => {
           if (currentVisibleMarker !== markerId) {
+            // Affiche le HUD
             hud.innerHTML = generateHudContent(markerInfos[markerId]);
             hud.style.display = 'block';
+            
+            // Affiche le modèle 3D
+            entity.setAttribute('visible', true);
             currentVisibleMarker = markerId;
           }
         });
 
         marker.addEventListener('markerLost', () => {
           if (currentVisibleMarker === markerId) {
+            // Masque le HUD
             hud.style.display = 'none';
+            
+            // Masque le modèle 3D
+            entity.setAttribute('visible', false);
             currentVisibleMarker = null;
           }
         });
