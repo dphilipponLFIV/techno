@@ -94,7 +94,7 @@
         marker.addEventListener('markerFound', () => {
           // Si un autre marqueur était affiché, on ne le remplace que si c'est un nouveau
           if (currentVisibleMarker !== markerId) {
-            hud.innerHTML = markerTexts[markerId];
+            hud.innerHTML = markerInfos[markerId];
             hud.style.display = 'block';
             currentVisibleMarker = markerId;
           }
