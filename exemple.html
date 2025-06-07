@@ -54,9 +54,36 @@
         kanjiMarker: "Vous avez détecté le marqueur Kanji ! Ce marqueur utilise la touche entrée !"
         // Ajoutez ici d'autres marqueurs si besoin
       };
+      const markerInfos = {
+        hiroMarker: {
+          titre: "La Pietà",
+          auteur: "Michel-Ange",
+          annee: "1498-1499",
+          lieu: "Basilique Saint-Pierre, Vatican, Rome",
+          description: "La Pietà (prononcé : [pjeˈta]) est un groupe en marbre représentant la Vierge Marie tenant le corps du Christ descendu de la Croix, sculpté entre 1498 et 1499.",
+          opinion: "Chef-d'œuvre emblématique de la Renaissance, la Pietà impressionne par la délicatesse de ses détails et l'émotion qu'elle suscite."
+        },
+        AkFa: {
+          titre: "La Pietà",
+          auteur: "Michel-Ange",
+          annee: "1498-1499",
+          lieu: "Basilique Saint-Pierre, Vatican, Rome",
+          description: "La Pietà (prononcé : [pjeˈta]) est un groupe en marbre représentant la Vierge Marie tenant le corps du Christ descendu de la Croix, sculpté entre 1498 et 1499.",
+          opinion: "Chef-d'œuvre emblématique de la Renaissance, la Pietà impressionne par la délicatesse de ses détails et l'émotion qu'elle suscite."
+        },
+        kanjiMarker: {
+          titre: "Marqueur Kanji",
+          auteur: "AR.js",
+          annee: "2025",
+          lieu: "Expérience de démonstration",
+          description: "Ce marqueur sert d'exemple pour la détection de symboles Kanji dans une scène AR.",
+          opinion: "Utile pour tester la reconnaissance de marqueurs standards dans AR.js."
+        }
+        // Ajoutez d'autres marqueurs si besoin
+      };
 
       // Liste des marqueurs à surveiller
-      const markerIds = Object.keys(markerTexts);
+      const markerIds = Object.keys(markerInfos);
 
       const hud = document.getElementById('hud');
       let currentVisibleMarker = null;
