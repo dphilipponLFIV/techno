@@ -37,23 +37,13 @@
         <a-image src="https://dphilipponlfiv.github.io/techno/images/AkFa.png"
                  position="0 0 0"
                  rotation="-90 0 0"
-                 width="1"
-                 height="1">
+                 width="2"
+                 height="2">
         </a-image>
       </a-marker>   
-      <a-marker id="kanjiMarker" preset="kanji">
-        <a-sphere position="0 0.5 0" color="#EF2D5E"></a-sphere>
-      </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
     <script>
-      // Texte associé à chaque marqueur
-      const markerTexts = {
-        hiroMarker: "<h2>La Pietà</h2>La Pietà (prononcé : [pjeˈta]) est un groupe en marbre de Michel-Ange de la basilique Saint-Pierre du Vatican à Rome, <br/>représentant le thème biblique de la « Vierge Marie douloureuse » (Mater dolorosa en latin ou Pietà)<br/>, tenant sur ses genoux le corps du Christ descendu de la Croix <br/> avant sa Mise au tombeau, sa Résurrection et son Ascension. <br/>Elle est sculptée entre 1498 et 1499. ",
-        AkFa: "Vous avez détecté le marqueur AkFa ! Ce marqueur utilise la touche entrée !",
-        kanjiMarker: "Vous avez détecté le marqueur Kanji ! Ce marqueur utilise la touche entrée !"
-        // Ajoutez ici d'autres marqueurs si besoin
-      };
       const markerInfos = {
         hiroMarker: {
           titre: "La Pietà",
@@ -70,14 +60,6 @@
           lieu: "????",
           description: "Il représente la mort et l'enterrement",
           opinion: "C'est merveilleux."
-        },
-        kanjiMarker: {
-          titre: "Marqueur Kanji",
-          auteur: "AR.js",
-          annee: "2025",
-          lieu: "Expérience de démonstration",
-          description: "Ce marqueur sert d'exemple pour la détection de symboles Kanji dans une scène AR.",
-          opinion: "Utile pour tester la reconnaissance de marqueurs standards dans AR.js."
         }
         // Ajoutez d'autres marqueurs si besoin
       };
