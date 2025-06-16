@@ -8,6 +8,9 @@
   </head>
   <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs>
+      <a-assets>
+        <a-asset-item id="ViEa" src="textures/ViEa/ViEa.glb"></a-asset-item>
+      </a-assets>
       <a-sky color="#ECECEC"></a-sky>
       <a-box position="0 1.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-sphere position="2 1 -5" radius="1.25" color="#EF2D5E"></a-sphere>
@@ -30,8 +33,7 @@
             scale="0.5 0.5 0.5"
             rotation="-90 0 0">
           </a-entity>
-          <a-entity 
-            gltf-model="textures/ViEa/ViEa.gltf"
+          <a-entity gltf-model="#ViEa"
             position="9 0 0"
             scale="1 1 1"
             rotation="0 0 0">
