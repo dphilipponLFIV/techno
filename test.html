@@ -1,27 +1,18 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
   <head>
     <meta charset="utf-8">
-    <title>Test A-Frame</title>
+    <title>Visualisation 3D simple avec A-Frame</title>
     <script src="src/aframe.min.js"></script>
-    <style>
-      body { margin: 0; overflow: hidden; }
-    </style>
   </head>
-  <body>
-    
-    <a-scene embedded>
-      <!-- Image positionnée devant la caméra, avec taille visible -->
-      <a-image 
-        src="https://dphilipponLFIV.github.io/techno/images/AkFa.png"
-        position="0 1.5 -2"
-        rotation="0 0 0"
-        width="2"
-        height="2">
-      </a-image>
-      <!-- Caméra placée face à l’image -->
-      <a-entity camera position="0 1.6 0"></a-entity>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene>
       <a-sky color="#ECECEC"></a-sky>
+      <a-box position="0 1.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="2 1 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="-2 0.75 -4" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#7BC8A4"></a-plane>
+      <a-camera position="0 1.6 0"></a-camera>
     </a-scene>
   </body>
 </html>
