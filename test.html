@@ -10,6 +10,7 @@
     <a-scene embedded arjs>
       <a-assets>
         <a-asset-item id="ViEa" src="textures/ViEa/ViEa.glb"></a-asset-item>
+        <a-asset-item id="ArDu" src="textures/ArDu/ArDu.glb"></a-asset-item>
       </a-assets>
       <a-sky color="#ECECEC"></a-sky>
       <a-box position="0 1.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
@@ -18,6 +19,11 @@
       
           <a-entity gltf-model="#ViEa"
             position="0 0 0"
+            scale="1 1 1"
+            rotation="0 0 0">
+          </a-entity>
+          <a-entity gltf-model="#ArDu"
+            position="10 0 0"
             scale="1 1 1"
             rotation="0 0 0">
           </a-entity>
