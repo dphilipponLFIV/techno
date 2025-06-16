@@ -10,6 +10,8 @@
     <a-scene embedded arjs>
       <a-assets>
         <a-asset-item id="ViEa" src="https://dphilipponlfiv.github.io/techno/textures/ViEa/ViEa.glb"></a-asset-item>
+        <a-asset-item id="GuDu" src="https://dphilipponlfiv.github.io/techno/textures/GuDu/GuDu.glb"></a-asset-item>
+        <a-asset-item id="GuDu" src="https://dphilipponlfiv.github.io/techno/textures/ArDu/ArDu.glb"></a-asset-item>
       </a-assets>
       <a-sky color="#ECECEC"></a-sky>
       <a-box position="0 1.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
@@ -22,6 +24,17 @@
             rotation="0 0 0">
           </a-entity>
          
+          <a-entity gltf-model="#GuDu"
+            position="-3 0 0"
+            scale="1 1 1"
+            rotation="0 0 0">
+          </a-entity>
+         
+          <a-entity gltf-model="#ArDu"
+            position="3 0 0"
+            scale="1 1 1"
+            rotation="0 0 0">
+          </a-entity>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#7BC8A4"></a-plane>
       <a-camera position="0 1.6 0"></a-camera>
     </a-scene>
