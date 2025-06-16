@@ -12,10 +12,8 @@
         <a-asset-item id="ViEa" src="https://dphilipponlfiv.github.io/techno/textures/ViEa/ViEa.glb"></a-asset-item>
         <a-asset-item id="ArDu" src="https://dphilipponlfiv.github.io/techno/textures/ArDu/ArDu.glb"></a-asset-item>
       </a-assets>
-      <a-sky color="#ECECEC"></a-sky>
-      <a-box position="0 1.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="2 1 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="-2 0.75 -4" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-sky color="#82c8e5"></a-sky>
+      <a-cylinder id="clickable" position="-2 0.75 -4" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
       
           <a-entity gltf-model="#ViEa"
             position="0 0 0"
@@ -46,7 +44,21 @@
                  height="2">
         </a-image>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#7BC8A4"></a-plane>
-      <a-camera position="0 1.6 0"></a-camera>
+      <a-camera position="0 1.6 0" look-controls></a-camera>
+      <a-entity id="hud" geometry="primitive: plane; width: 1; height: 0.5" material="color: #222; opacity: 0.8"
+                position="0 2 -2" visible="false">
+        <a-text value="Ceci est un HUD !" align="center" color="#FFF" position="0 0 0.01"></a-text>
+      </a-entity>
     </a-scene>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var clickable = document.getElementById('clickable');
+        var hud = document.getElementById('hud');
+    
+        clickable.addEventListener('click', function () {
+          hud.setAttribute('visible', 'true');
+        });
+      });
+    </script>
   </body>
 </html>
