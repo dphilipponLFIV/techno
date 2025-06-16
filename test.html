@@ -3,20 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>Visualisation 3D minimale</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <style>
       body { margin: 0; overflow: hidden; }
     </style>
   </head>
   <body>
     <a-scene embedded>
-      <!-- Image positionnée devant la caméra -->
-      <a-image src="https://dphilipponlfiv.github.io/techno/images/AkFa.png"
-               position="0 1.6 -5"  <!-- Changer la position de l'image -->
-               rotation="0 0 0"
-               width="4"  <!-- Augmenter la taille de l'image -->
-               height="4">
-      </a-image>
       <!-- Caméra regardant vers l'avant -->
       <a-entity camera position="0 1.6 0"></a-entity>
       <a-sky color="#ECECEC"></a-sky>
