@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Visualisation 3D simple avec A-Frame Avec URL Full</title>
+    <title>Musée virtuelle des 4è B</title>
     <script src="src/aframe.min.js"></script>
     <script src="src/aframe-ar.js"></script>
   </head>
@@ -12,11 +12,17 @@
         <a-asset-item id="ViEa" src="https://dphilipponlfiv.github.io/techno/textures/ViEa/ViEa.glb"></a-asset-item>
         <a-asset-item id="ArDu" src="https://dphilipponlfiv.github.io/techno/textures/ArDu/ArDu.glb"></a-asset-item>
       </a-assets>
-      <a-sky color="#82c8e5"></a-sky>      
+      <a-sky color="#82c8e5"></a-sky>
           <a-entity gltf-model="#ViEa"
             position="0 0 0"
-            scale="1 1 1"
+            scale="0.5 0.5 0.5"
             rotation="0 0 0">
+          </a-entity>
+          <a-entity id="hud_ViEa" geometry="primitive: plane; width: 1; height: 0.5" material="color: #222; opacity: 0.8"
+                    position="2 2 -2" visible="true">
+            <a-text value="Democrite meditant sur le siege de l'ame !" align="center" color="#FFF" position="0 0 0.01"></a-text>
+            <a-text value="1868" align="center" color="#FFF" position="0 -0.5 0.01"></a-text>
+            <a-text value="Leon Alexandre Delhomme" align="center" color="#FFF" position="0 -1 0.01"></a-text>
           </a-entity>
           <a-entity gltf-model="#GuDu"
             position="3 0 0"
@@ -24,11 +30,16 @@
             rotation="0 0 0">
           </a-entity>
           <a-image src="https://dphilipponlfiv.github.io/techno/images/AkFa.png"
-                 position="0 0 0"
-                 rotation="-90 0 0"
+                 position="2 5 2"
+                 rotation="0 0 0"
                  width="2"
                  height="2">
-          </a-image> 
+          </a-image>
+          <a-entity id="hud_AkFa" geometry="primitive: plane; width: 1; height: 0.5" material="color: #222; opacity: 0.8"
+                    position="2 6 2" visible="true">
+            <a-text value="Agnus" align="center" color="#FFF" position="0 0 0.01"></a-text>
+            <a-text value="2022" align="center" color="#FFF" position="0 -0.5 0.01"></a-text>
+            <a-text value="Konstantin Korobov" align="center" color="#FFF" position="0 -1 0.01"></a-text>
           <a-image src="https://dphilipponlfiv.github.io/techno/images/KaPa.jpeg"
                  position="0 0 0"
                  rotation="-90 0 0"
@@ -43,10 +54,6 @@
         </a-image>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#7BC8A4"></a-plane>
       <a-camera position="0 1.6 0" look-controls></a-camera>
-      <a-entity id="hud" geometry="primitive: plane; width: 1; height: 0.5" material="color: #222; opacity: 0.8"
-                position="0 2 -2" visible="true">
-        <a-text value="Ceci est un HUD !" align="center" color="#FFF" position="0 0 0.01"></a-text>
-      </a-entity>
     </a-scene>
     <script>
     </script>
