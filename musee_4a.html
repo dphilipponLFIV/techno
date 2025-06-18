@@ -27,7 +27,16 @@
     <a-scene embedded arjs>
       <a-assets timeout="10000">
         <a-asset-item id="a_SaYa" src="https://dphilipponlfiv.github.io/techno/textures/SaYa.glb"></a-asset-item>
+        <a-asset-item id="a_OlSi" src="https://dphilipponlfiv.github.io/techno/textures/OlSi.glb"></a-asset-item>
       </a-assets>
+      <a-marker id="OlSi" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-output_OlSi.patt">
+        <a-entity 
+            gltf-model="#a_OlSi"
+            position="0 0 0"
+            scale="0.5 0.5 0.5"
+            rotation="-90 0 0">
+          </a-entity>
+      </a-marker>   
       <a-marker id="SaYa" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-SAYA.patt">
         <a-entity 
             gltf-model="#a_SaYa"
@@ -63,6 +72,14 @@
           lieu: "musée d'Orsay, Paris",
           description: "C'est un tableau peint par l'artiste impressioniste, Claude Monet en 1900. Elle est conservée au musée d'orsay, à Paris. Cette oeuvre dépicte un chemin passant par un jardin de fleurs violets entourés par des arbres.",
           opinion: "On a choisi cette oeuvre car Monet est un de nos artistes préférés! :D"
+        },
+        OlSi: {
+          titre: "Christ le Rédempteur",
+          auteur: "Paul Landowski",
+          annee: "1931",
+          lieu: "????",
+          description: "Statue de Jesus Christ en haut de mont Concorvado",
+          opinion: "C'est beau et grand"
         },
         PhLo: {
           titre: "Ophélie",
