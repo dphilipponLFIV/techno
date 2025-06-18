@@ -27,6 +27,10 @@
     <a-scene embedded arjs>
       <a-assets timeout="10000">
         <a-asset-item id="a_SKOM" src="https://dphilipponlfiv.github.io/techno/textures/SkOM.glb"></a-asset-item>
+        <a-asset-item id="a_ARCT" src="https://dphilipponlfiv.github.io/techno/textures/ArCT.glb"></a-asset-item>
+        <a-asset-item id="a_ELPA" src="https://dphilipponlfiv.github.io/techno/textures/ElPa.glb"></a-asset-item>
+        <a-asset-item id="a_PHSA" src="https://dphilipponlfiv.github.io/techno/textures/PhSa.glb"></a-asset-item>
+        <a-asset-item id="a_CLEB" src="https://dphilipponlfiv.github.io/techno/textures/ClEb.glb"></a-asset-item>
       </a-assets>
       <a-marker id="SKOM" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-SKOM.patt">
         <a-entity 
@@ -36,8 +40,40 @@
             rotation="-90 0 0">
           </a-entity>
       </a-marker>   
-      <a-marker id="OlSi" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-OLSI.patt">
-        <a-image src="https://dphilipponlfiv.github.io/techno/images/MaDa.jpeg"
+      <a-marker id="ARCT" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-ARCT.patt">
+        <a-entity 
+            gltf-model="#a_ARCT"
+            position="0 0 0"
+            scale="0.5 0.5 0.5"
+            rotation="-90 0 0">
+          </a-entity>
+      </a-marker>   
+      <a-marker id="ELPA" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-ELPA.patt">
+        <a-entity 
+            gltf-model="#a_ELPA"
+            position="0 0 0"
+            scale="0.5 0.5 0.5"
+            rotation="-90 0 0">
+          </a-entity>
+      </a-marker>   
+      <a-marker id="PHSA" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-PHSA.patt">
+        <a-entity 
+            gltf-model="#a_PHSA"
+            position="0 0 0"
+            scale="0.5 0.5 0.5"
+            rotation="-90 0 0">
+          </a-entity>
+      </a-marker>   
+      <a-marker id="CLEB" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-CLEB.patt">
+        <a-entity 
+            gltf-model="#a_CLEB"
+            position="0 0 0"
+            scale="0.5 0.5 0.5"
+            rotation="-90 0 0">
+          </a-entity>
+      </a-marker>   
+      <a-marker id="PASO" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-PASO.patt">
+        <a-image src="https://dphilipponlfiv.github.io/techno/images/PaSo.jpg"
                  position="0 0 0"
                  rotation="-90 0 0"
                  width="2"
@@ -56,13 +92,45 @@
           description: "une statue argentée qui presente une femme representant la liberté tenant une tablette sur lequelle il y a la date de la déclaration de l'independance des USA (4 juillet 1776)et  une torche qui est un symbole de la lumiere donc l'éspoire de la démocratie",
           opinion: "C'est une partie importante de l'histoire pour les états-unis (relation entre les USA ET FRANCE)(parce que je suis americaine) c'est la beauté de l'histoire "
         },
+        CLEB: {
+          titre: "Femme au parasol",
+          auteur: "Claude Monet",
+          annee: "1875",
+          lieu: "Musée d'Orsay",
+          description: "Une femme tenant un parasol avec son fils dans un champ de fleurs. Un ciel bleu et des herbes hautes en mouvement grace au vent encadrent les personnages qui sont la femme et le fils du peintre, Monet. Il y a beaucoup de mouvement dans cette peinture, le vent fait bouger lezs herbres et les habits de la femme. Cette peinture donne un air maguique et féerique. Monet a fait plusieurs séries de cette peinture, et son style impressioniste en utilisant de la peinture à l'huile rend le moment special. ",
+          opinion: "C'est beau, l'oeuvre est coloré et il y a une ambiance très magique. C'est aussi très bien connu et est reliée à l'histoire. En le montrant de manière plus technologique, nous voulont presenter cette oeuvre non comme une chose ancienne et historique mais une chose nouvelle qui est vu chaque fois différemment, c'est la beauté de l'art."
+        },
+        PHSA: {
+          titre: "Le Penseur",
+          auteur: "Auguste Rodin",
+          annee: "1902",
+          lieu: "Musée de Rodin",
+          description: "Il représente la réflexion profonde et la contemplation humaine.",
+          opinion: "C'est curieux"
+        },
+        PASO: {
+          titre: "La Liberté guidant le peuple",
+          auteur: "Eugène Delacroix",
+          annee: "1830",
+          lieu: "Le musée du Louvre",
+          description: "La liberté des droits des peuple represente les peuple de Paris qui c'est soulevé contre le roi Charle X",
+          opinion: "Parce qu'elle est historique et représente l'histoire de la France"
+        },
+        ELPA: {
+          titre: "La venus de milo",
+          auteur: "Alexandro d'Antioche",
+          annee: "Environ 150 av JC",
+          lieu: "Le musée du Louvre",
+          description: "sculpture antique en marbre, souvent identifiée comme représentant Aphrodite, déesse grecque de l'amour et de la beauté.",
+          opinion: "Car, elle est magnifique, elle représente la beauté,on l'admire également parce qu'elle représente la déesse de l'amour et c'est le fichier qui nous a intéresser, qui représente l'histoire"
+        },
         OlSi: {
-          titre: "Christ le Rédempteur",
-          auteur: "Paul Landowski",
-          annee: "1931",
-          lieu: "????",
-          description: "Statue de Jesus Christ en haut de mont Concorvado",
-          opinion: "C'est beau et grand"
+          titre: "David",
+          auteur: "Michel Ange",
+          annee: "1504",
+          lieu: "Galerie de l'Académie,Florence",
+          description: "Sculpture en marbre et sculptée par Michel Ange, David représente un homme nue, avec un simple tissu associable à une écharpe plutot longue, trainante derriere lui. Il est la représentation du héros biblique, David avant son combat contre Goliath. De plus, il est l'emblème de la beauté masculine et de de la force. Il est aussi considéré comme l'enblème de Florence grâce à ses valeurs républicaines et à son courage.",
+          opinion: "C'est unique..."
         }
         // Ajoutez d'autres marqueurs si besoin
       };
