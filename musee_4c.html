@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="src/aframe.min.js"></script>
+    <script src="src/aframe-ar.js"></script>
+    <style>
+      #hud {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: rgba(0,0,0,0.7);
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        display: none;
+        z-index: 1000;
+        min-width: 200px;
+        font-size: 1.2em;
+        max-height: 300px;
+        width: 30%; 
+        overflow: scroll;
+      }
+    </style>
+  </head>
+  <body style="margin:0;">
+    <div id="hud"></div>
+    <a-scene embedded arjs>
+      <a-assets timeout="10000">
+        <a-asset-item id="a_SKOM" src="https://dphilipponlfiv.github.io/techno/textures/SkOM.glb"></a-asset-item>
+      </a-assets>
+      <a-marker id="SKOM" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-SKOM.patt">
+        <a-entity 
+            gltf-model="#a_SKOM"
+            position="0 0 0"
+            scale="0.5 0.5 0.5"
+            rotation="-90 0 0">
+          </a-entity>
+      </a-marker>   
+      <a-marker id="OlSi" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-OLSI.patt">
+        <a-image src="https://dphilipponlfiv.github.io/techno/images/MaDa.jpeg"
+                 position="0 0 0"
+                 rotation="-90 0 0"
+                 width="2"
+                 height="2">
+        </a-image>
+      </a-marker>   
+      <a-entity camera></a-entity>
+    </a-scene>
+    <script>
+      const markerInfos = {
+        SKOM: {
+          titre: "La Statue de la Liberté",
+          auteur: "Auguste Bartholdi",
+          annee: "1886",
+          lieu: "New York",
+          description: "une statue argentée qui presente une femme representant la liberté tenant une tablette sur lequelle il y a la date de la déclaration de l'independance des USA (4 juillet 1776)et  une torche qui est un symbole de la lumiere donc l'éspoire de la démocratie",
+          opinion: "C'est une partie importante de l'histoire pour les états-unis (relation entre les USA ET FRANCE)(parce que je suis americaine) c'est la beauté de l'histoire "
+        },
+        OlSi: {
+          titre: "Christ le Rédempteur",
+          auteur: "Paul Landowski",
+          annee: "1931",
+          lieu: "????",
+          description: "Statue de Jesus Christ en haut de mont Concorvado",
+          opinion: "C'est beau et grand"
+        }
+        // Ajoutez d'autres marqueurs si besoin
+      };
+      function generateHudContent(info) {
+        return `
+          <h2>${info.titre}</h2>
+          <strong>Auteur :</strong> ${info.auteur}<br/>
+          <strong>Année :</strong> ${info.annee}<br/>
+          <strong>Lieu de conservation :</strong> ${info.lieu}<br/><br/>
+          <strong>Description :</strong><br/>${info.description}<br/><br/>
+          <strong>Opinion :</strong><br/>${info.opinion}
+        `;
+      }
+
+      // Liste des marqueurs à surveiller
+      const markerIds = Object.keys(markerInfos);
+
+      const hud = document.getElementById('hud');
+      let currentVisibleMarker = null;
+
+      markerIds.forEach(markerId => {
+        const marker = document.getElementById(markerId);
+
+        marker.addEventListener('markerFound', () => {
+          // Si un autre marqueur était affiché, on ne le remplace que si c'est un nouveau
+          if (currentVisibleMarker !== markerId) {
+            hud.innerHTML = generateHudContent(markerInfos[markerId]);
+            hud.style.display = 'block';
+            currentVisibleMarker = markerId;
+          }
+        });
+
+        marker.addEventListener('markerLost', () => {
+          // Si le marqueur perdu est celui actuellement affiché, on masque le HUD
+          if (currentVisibleMarker === markerId) {
+            hud.style.display = 'none';
+            currentVisibleMarker = null;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
