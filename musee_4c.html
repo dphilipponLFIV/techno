@@ -44,7 +44,7 @@
         <a-entity 
             gltf-model="#a_ARCT"
             position="0 -2 0.5"
-            scale="0.2 0.2 0.2"
+            scale="0.3 0.3 0.3"
             rotation="-90 0 0">
           </a-entity>
       </a-marker>   
@@ -105,7 +105,7 @@
           auteur: "Claude Monet",
           annee: "1875",
           lieu: "Musée d'Orsay",
-          description: "Une femme tenant un parasol avec son fils dans un champ de fleurs. Un ciel bleu et des herbes hautes en mouvement grace au vent encadrent les personnages qui sont la femme et le fils du peintre, Monet. Il y a beaucoup de mouvement dans cette peinture, le vent fait bouger lezs herbres et les habits de la femme. Cette peinture donne un air maguique et féerique. Monet a fait plusieurs séries de cette peinture, et son style impressioniste en utilisant de la peinture à l'huile rend le moment special. ",
+          description: "<div id='clara'>Une femme tenant un parasol avec son fils dans un champ de fleurs. Un ciel bleu et des herbes hautes en mouvement grace au vent encadrent les personnages qui sont la femme et le fils du peintre, Monet. Il y a beaucoup de mouvement dans cette peinture, le vent fait bouger lezs herbres et les habits de la femme. Cette peinture donne un air maguique et féerique. Monet a fait plusieurs séries de cette peinture, et son style impressioniste en utilisant de la peinture à l'huile rend le moment special.</div> ",
           opinion: "C'est beau, l'oeuvre est coloré et il y a une ambiance très magique. C'est aussi très bien connu et est reliée à l'histoire. En le montrant de manière plus technologique, nous voulont presenter cette oeuvre non comme une chose ancienne et historique mais une chose nouvelle qui est vu chaque fois différemment, c'est la beauté de l'art."
         },
         PHSA: {
@@ -150,6 +150,20 @@
 
       const hud = document.getElementById('hud');
       let currentVisibleMarker = null;
+      const div = document.getElementById('clara');
+        const scrollSpeed = 1; // Pixels à chaque intervalle
+        const interval = 30;   // Millisecondes entre chaque scroll
+        
+        function autoScroll() {
+          if (div.scrollTop + div.clientHeight >= div.scrollHeight) {
+            // Retour en haut quand la fin est atteinte
+            div.scrollTop = 0;
+          } else {
+            div.scrollTop += scrollSpeed;
+          }
+        }
+        
+        setInterval(autoScroll, interval);
 
       markerIds.forEach(markerId => {
         const marker = document.getElementById(markerId);
