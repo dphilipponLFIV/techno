@@ -29,11 +29,20 @@
       <a-assets timeout="10000">
         <a-asset-item id="a_SaYa" src="https://dphilipponlfiv.github.io/techno/textures/SaYa.glb"></a-asset-item>
         <a-asset-item id="a_OlSi" src="https://dphilipponlfiv.github.io/techno/textures/OlSi.glb"></a-asset-item>
+        <a-asset-item id="a_MaKi" src="https://dphilipponlfiv.github.io/techno/textures/MaKi.glb"></a-asset-item>
       </a-assets>
       <a-marker id="OlSi" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-OLSI.patt">
         <a-entity 
             gltf-model="#a_OlSi"
             position="0 -3 0"
+            scale="1 1 1"
+            rotation="-90 0 0">
+          </a-entity>
+      </a-marker>   
+      <a-marker id="MaKi" type="pattern" url="https://dphilipponlfiv.github.io/techno/markers/pattern-MAKI.patt">
+        <a-entity 
+            gltf-model="#a_MaKi"
+            position="0 0 0"
             scale="1 1 1"
             rotation="-90 0 0">
           </a-entity>
@@ -111,6 +120,14 @@
           auteur: "Auguste Rodin",
           annee: "1889",
           lieu: "Musée de rodin -Paris",
+          description: "Les trois ombres: est une piece faite pour regarder le spectateur du haut de la porte des enfers  ",
+          opinion: "elle fait partie integrante de la porte des enfers alors pourquoi pas :)"
+        },
+        MaKi: {
+          titre: "Porco Rosso",
+          auteur: "Studio Ghibli",
+          annee: "1992",
+          lieu: "",
           description: "Les trois ombres: est une piece faite pour regarder le spectateur du haut de la porte des enfers  ",
           opinion: "elle fait partie integrante de la porte des enfers alors pourquoi pas :)"
         }
