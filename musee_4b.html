@@ -87,7 +87,10 @@
           annee: "1831",
           lieu: "????",
           description: "????",
-          opinion: "C'est très beau"
+          opinion: "C'est très beau",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         },
         AkFa: {
           titre: "Agnus",
@@ -95,7 +98,10 @@
           annee: "2022",
           lieu: "????",
           description: "Il représente la mort et l'enterrement",
-          opinion: "C'est merveilleux."
+          opinion: "C'est merveilleux.",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         },
         KaPa: {
           titre: "Champs de tulipes en Hollande",
@@ -103,7 +109,10 @@
           annee: "1886",
           lieu: "????",
           description: "Le tableau represente la vivacité et la beauté du paysage floral",
-          opinion: "C'est incroyable."
+          opinion: "C'est incroyable.",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         },
         ViEa: {
           titre: "democrite meditant sur le siege de l'ame",
@@ -111,7 +120,10 @@
           annee: "1868",
           lieu: "????",
           description: "il representele philosophe grec Démocrite en train de méditer sur la localisation de l'âme.  ",
-          opinion: "c'est interesant"
+          opinion: "c'est interesant",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         },
         PhCh: {
           titre: "Le Cri",
@@ -119,7 +131,10 @@
           annee: "1893",
           lieu: "????",
           description: "il represente la déformation du personnage et du paysage",
-          opinion: "C'est très belle hehe"
+          opinion: "C'est très belle hehe",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         },
         GuDu: {
           titre: "La nuit etoilée",
@@ -127,18 +142,23 @@
           annee: "1889",
           lieu: "????",
           description: "Representatio",
-          opinion: "C'est élégant"
+          opinion: "C'est élégant",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         }
         // Ajoutez d'autres marqueurs si besoin
       };
       function generateHudContent(info) {
         return `
+          <div style="color:${info.color}; font-family:${info.font}; background-color:${info.bg};">
           <h2>${info.titre}</h2>
           <strong>Auteur :</strong> ${info.auteur}<br/>
           <strong>Année :</strong> ${info.annee}<br/>
           <strong>Lieu de conservation :</strong> ${info.lieu}<br/><br/>
           <strong>Description :</strong><br/>${info.description}<br/><br/>
           <strong>Opinion :</strong><br/>${info.opinion}
+          </div>
         `;
       }
 
