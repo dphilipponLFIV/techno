@@ -90,7 +90,10 @@
           annee: "1886",
           lieu: "New York",
           description: "une statue argentée qui presente une femme representant la liberté tenant une tablette sur lequelle il y a la date de la déclaration de l'independance des USA (4 juillet 1776)et  une torche qui est un symbole de la lumiere donc l'éspoire de la démocratie",
-          opinion: "C'est une partie importante de l'histoire pour les Etats-Unis (relation entre les USA et la France)Nous avons procurer grace a la raison que l'individu nommé skia est américaine et francaise.C'est la beauté de l'histoire.aA l'avis de mon amie cette sculpture est trés surestimé mais elle était absente le jour du choix de l'oeuvre.Elle est très triste."
+          opinion: "C'est une partie importante de l'histoire pour les Etats-Unis (relation entre les USA et la France)Nous avons procurer grace a la raison que l'individu nommé skia est américaine et francaise.C'est la beauté de l'histoire.aA l'avis de mon amie cette sculpture est trés surestimé mais elle était absente le jour du choix de l'oeuvre.Elle est très triste.",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         },
         ARCT: {
           titre: "David",
@@ -98,7 +101,10 @@
           annee: "Galerie de l'Académie,Florence",
           lieu: "Musée d'Orsay",
           description: "Sculpture en marbre et sculptée par Michel Ange, David représente un homme nue, avec un simple tissu associable à une écharpe plutot longue, trainante derriere lui. Il est la représentation du héros biblique, David avant son combat contre Goliath. De plus, il est l'emblème de la beauté masculine et de de la force. Il est aussi considéré comme l'enblème de Florence grâce à ses valeurs républicaines et à son courage.",
-          opinion: "C'est une représentation du courage, de la force. C'est un symbole qui doit être respecté. Grâce à Michel-Ange, on peut admirer la force et le courage en personne, servant ainsi d'une figure que l'on peut suivre."
+          opinion: "C'est une représentation du courage, de la force. C'est un symbole qui doit être respecté. Grâce à Michel-Ange, on peut admirer la force et le courage en personne, servant ainsi d'une figure que l'on peut suivre.",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         },
         CLEB: {
           titre: "Femme au parasol",
@@ -106,7 +112,10 @@
           annee: "1875",
           lieu: "Musée d'Orsay",
           description: "<div id='clara'>Une femme tenant un parasol avec son fils dans un champ de fleurs. Un ciel bleu et des herbes hautes en mouvement grace au vent encadrent les personnages qui sont la femme et le fils du peintre, Monet. Il y a beaucoup de mouvement dans cette peinture, le vent fait bouger lezs herbres et les habits de la femme. Cette peinture donne un air maguique et féerique. Monet a fait plusieurs séries de cette peinture, et son style impressioniste en utilisant de la peinture à l'huile rend le moment special.</div> ",
-          opinion: "C'est beau, l'oeuvre est coloré et il y a une ambiance très magique. C'est aussi très bien connu et est reliée à l'histoire. En le montrant de manière plus technologique, nous voulont presenter cette oeuvre non comme une chose ancienne et historique mais une chose nouvelle qui est vu chaque fois différemment, c'est la beauté de l'art."
+          opinion: "C'est beau, l'oeuvre est coloré et il y a une ambiance très magique. C'est aussi très bien connu et est reliée à l'histoire. En le montrant de manière plus technologique, nous voulont presenter cette oeuvre non comme une chose ancienne et historique mais une chose nouvelle qui est vu chaque fois différemment, c'est la beauté de l'art.",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         },
         PHSA: {
           titre: "Le Penseur",
@@ -114,7 +123,10 @@
           annee: "1902",
           lieu: "Musée de Rodin",
           description: "Il représente la réflexion profonde et la contemplation humaine.",
-          opinion: "C'est curieux"
+          opinion: "C'est curieux",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         },
         PASO: {
           titre: "La Liberté guidant le peuple",
@@ -123,7 +135,10 @@
           lieu: "Le musée du Louvre",
           description: ""Ce tableau,montre un moment de révolution et de lutte pour la liberté en France. Il s'inspire de la révolte des Trois Glorieuses, en juillet 1830 à Paris, qui a renversé le roi Charles X. Le peintre a voulu rendre hommage à ceux qui se sont battus pour la liberté et la justice.
 Au milieu du tableau, il y a une femme, La Liberté, qui tient un drapeau français (bleu, blanc, rouge) et un fusil. Elle est torse nu, avec un bonnet phrygien rouge, symbole de la liberté et de la Révolution. . À leurs pieds, des cadavres. Ils ont été tués dans des combats violents. Le décor est sombre et en désordre, mais la lumière montre la liberté et ceux qui la suivent.Ce tableau parle de politique et de symboles. Il dit que la liberté est pour tout le monde et peut rassembler des gens différents."",
-          opinion: " La Liberté guidant le peuple est une œuvre d'art importante. Elle mélange réalisme, symbolisme et romantisme. Elle montre un moment clé de l'histoire française."
+          opinion: " La Liberté guidant le peuple est une œuvre d'art importante. Elle mélange réalisme, symbolisme et romantisme. Elle montre un moment clé de l'histoire française.",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         },
         ELPA: {
           titre: "La venus de milo",
@@ -131,18 +146,23 @@ Au milieu du tableau, il y a une femme, La Liberté, qui tient un drapeau franç
           annee: "Environ 150 av JC",
           lieu: "Le musée du Louvre",
           description: "sculpture antique en marbre, souvent identifiée comme représentant Aphrodite, déesse grecque de l'amour et de la beauté.",
-          opinion: "Car, elle est magnifique, elle représente la beauté,on l'admire également parce qu'elle représente la déesse de l'amour et c'est le fichier qui nous a intéresser, qui représente l'histoire"
+          opinion: "Car, elle est magnifique, elle représente la beauté,on l'admire également parce qu'elle représente la déesse de l'amour et c'est le fichier qui nous a intéresser, qui représente l'histoire",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         }
         // Ajoutez d'autres marqueurs si besoin
       };
       function generateHudContent(info) {
         return `
+          <div style="color:${info.color}; font-family:${info.font}; background-color:${info.bg};">
           <h2>${info.titre}</h2>
           <strong>Auteur :</strong> ${info.auteur}<br/>
           <strong>Année :</strong> ${info.annee}<br/>
           <strong>Lieu de conservation :</strong> ${info.lieu}<br/><br/>
           <strong>Description :</strong><br/>${info.description}<br/><br/>
           <strong>Opinion :</strong><br/>${info.opinion}
+          </div>
         `;
       }
 
