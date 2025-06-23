@@ -89,7 +89,10 @@
           annee: "1900",
           lieu: "musée d'Orsay, Paris",
           description: "C'est un tableau peint par l'artiste impressioniste, Claude Monet en 1900. Elle est conservée au musée d'orsay, à Paris. Cette oeuvre dépicte un chemin passant par un jardin de fleurs violets entourés par des arbres.",
-          opinion: "Claude Monet crée une ambience calme et sérène dans ces peintures en utilisant le style d'impressionisme, ce qui consiste de nombreux touches de couleurs qui rejoignent ensemble pour créer un paysage majestueux. Cette peinture en particulier nos fascine vraiment car l'artiste utilise des nuances contrastées mais parvient quand même à rendre son oeuvre harmonieux."
+          opinion: "Claude Monet crée une ambience calme et sérène dans ces peintures en utilisant le style d'impressionisme, ce qui consiste de nombreux touches de couleurs qui rejoignent ensemble pour créer un paysage majestueux. Cette peinture en particulier nos fascine vraiment car l'artiste utilise des nuances contrastées mais parvient quand même à rendre son oeuvre harmonieux.",
+          font: "lora",
+          color: "#dac9ff",
+          bg: "#5a4589"
         },
         OlSi: {
           titre: "Christ le Rédempteur",
@@ -97,7 +100,10 @@
           annee: "1931",
           lieu: "????",
           description: "Statue de Jesus Christ en haut de mont Concorvado",
-          opinion: "C'est beau et grand"
+          opinion: "C'est beau et grand",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         },
         PhLo: {
           titre: "Ophélie",
@@ -105,7 +111,10 @@
           annee: "1851",
           lieu: "Tate Britain , à Londres",
           description: "Elle représente une personnage qui s'apelle Ophélie, qui vient de la pièce de Hamlet.",
-          opinion: "On a vu plusieur fois dans la class de arts et en dehors .L'oeuvre est très belle avec toute les couleur qui va emsemble parfaitement. Meme si,la scène est tragique parce qu'elle est entrain de mourir,mais elle a une visage très calme et paisible"
+          opinion: "On a vu plusieur fois dans la class de arts et en dehors .L'oeuvre est très belle avec toute les couleur qui va emsemble parfaitement. Meme si,la scène est tragique parce qu'elle est entrain de mourir,mais elle a une visage très calme et paisible",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         },
         ThBa: {
           titre: "La Naissance de Vénus",
@@ -113,7 +122,10 @@
           annee: "1485",
           lieu: "Galerie des Offices, salle 11-12 Botticelli",
           description: "Elle représente une personnage s'apelle Ophélie, qui vient de piéce de Hamlet.",
-          opinion: "On a vu la premiere fois dans la class de art et elle semblait très belleee."
+          opinion: "On a vu la premiere fois dans la class de art et elle semblait très belleee.",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         },
         SaYa: {
           titre: "Les trois ombres",
@@ -121,7 +133,10 @@
           annee: "1889",
           lieu: "Musée de rodin -Paris",
           description: "Les trois ombres: est une piece faite pour regarder le spectateur du haut de la porte des enfers  ",
-          opinion: "elle fait partie integrante de la porte des enfers alors pourquoi pas :)"
+          opinion: "elle fait partie integrante de la porte des enfers alors pourquoi pas :)",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         },
         MaKi: {
           titre: "Porco Rosso",
@@ -129,18 +144,23 @@
           annee: "1992",
           lieu: "",
           description: "Les trois ombres: est une piece faite pour regarder le spectateur du haut de la porte des enfers  ",
-          opinion: "elle fait partie integrante de la porte des enfers alors pourquoi pas :)"
+          opinion: "elle fait partie integrante de la porte des enfers alors pourquoi pas :)",
+          font: "arial",
+          color: "#ffffff",
+          bg: "#ffffff"
         }
         // Ajoutez d'autres marqueurs si besoin
       };
       function generateHudContent(info) {
         return `
+          <div style="color:${info.color}; font-family:${info.font}; background-color:${info.bg};">
           <h2>${info.titre}</h2>
           <strong>Auteur :</strong> ${info.auteur}<br/>
           <strong>Année :</strong> ${info.annee}<br/>
           <strong>Lieu de conservation :</strong> ${info.lieu}<br/><br/>
           <strong>Description :</strong><br/>${info.description}<br/><br/>
           <strong>Opinion :</strong><br/>${info.opinion}
+          </div>
         `;
       }
 
