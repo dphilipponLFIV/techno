@@ -211,7 +211,12 @@ AFRAME.registerComponent('not-mobile',  {
 
 
       <a-text text="" scale="2.5 2.5 2.5" value="120" position="-9 2.5 13" color="green"></a-text>
+      
 
+
+      <a-entity id="follower" geometry="primitive: plane; width: 1; height: 1" material="src: url(chat.png); side: double; transparent: true" follow-camera>
+        
+      </a-entity>
       <!-- Nav mesh. -->
       <a-entity nav-mesh
                 normal-material
