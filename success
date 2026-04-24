@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Récompense Escape Game SNT</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --bg-soft: #fbfaf7;
+      --paper: rgba(255,255,255,0.7);
+      --ink: #22201b;
+      --muted: #6f6a61;
+      --accent: #0f766e;
+      --accent-2: #f59e0b;
+      --accent-3: #7c3aed;
+      --line: #ddd6cb;
+      --success: #2e7d32;
+      --shadow: 0 18px 50px rgba(34, 32, 27, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(245,158,11,0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(15,118,110,0.16), transparent 24%),
+        linear-gradient(180deg, #fcfbf8 0%, var(--bg) 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .wrap {
+      width: min(1000px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 60px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.72));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(34,32,27,0.08);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 34px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(15,118,110,0.10);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      margin: 16px 0 12px;
+      font-size: clamp(2rem, 5vw, 4.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      max-width: 11ch;
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 62ch;
+      margin: 0;
+    }
+
+    .sparkles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    .sparkles span {
+      position: absolute;
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      transform: rotate(45deg);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .sparkles span:nth-child(1) { top: 12%; right: 12%; background: rgba(245,158,11,0.45); }
+    .sparkles span:nth-child(2) { top: 22%; right: 28%; width: 8px; height: 8px; background: rgba(124,58,237,0.4); animation-delay: .8s; }
+    .sparkles span:nth-child(3) { bottom: 18%; right: 10%; background: rgba(15,118,110,0.35); animation-delay: 1.5s; }
+    .sparkles span:nth-child(4) { bottom: 12%; left: 8%; width: 10px; height: 10px; background: rgba(245,158,11,0.3); animation-delay: 2.2s; }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0) rotate(45deg); }
+      50% { transform: translateY(-8px) rotate(45deg); }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr;
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(34,32,27,0.08);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+    }
+
+    .story {
+      font-size: 1rem;
+      color: #2d2b26;
+    }
+
+    .story p { margin: 0 0 12px; }
+
+    .thoughts {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .thoughts li {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      background: var(--bg-soft);
+      border: 1px dashed rgba(34,32,27,0.10);
+    }
+
+    .num {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-weight: 800;
+      color: white;
+      background: linear-gradient(135deg, var(--accent), #14b8a6);
+      box-shadow: 0 8px 18px rgba(15,118,110,0.25);
+    }
+
+    .title-box {
+      margin-top: 22px;
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(124,58,237,0.10), rgba(245,158,11,0.12));
+      border: 1px solid rgba(124,58,237,0.12);
+    }
+
+    .big-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1;
+      margin: 8px 0 0;
+      letter-spacing: -0.05em;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .skill {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(34,32,27,0.08);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      font-size: 0.96rem;
+    }
+
+    .skill strong { display: block; margin-bottom: 4px; }
+
+    .finale {
+      margin-top: 22px;
+      text-align: center;
+      padding: 28px 20px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(15,118,110,0.10), rgba(255,255,255,0.82));
+      border: 1px solid rgba(15,118,110,0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .finale p {
+      margin: 0 auto 10px;
+      max-width: 60ch;
+      color: var(--muted);
+    }
+
+    .quote {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 700;
+      color: var(--ink);
+      margin-top: 16px;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .mini {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero, .card, .finale { padding: 22px; }
+      .skills { grid-template-columns: 1fr; }
+      h1 { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="badge">Mission accomplie · Escape Game SNT</div>
+      <h1>Vous avez gagné contre un ZIP.</h1>
+      <p class="lead">
+        Ce qui, honnêtement, est déjà un exploit. Vous avez traversé des mots de passe douteux,
+        des calculs inutilement longs, des coordonnées pas très coopératives et une trilogie
+        du Seigneur des Anneaux assez lourde pour faire tousser une connexion Wi‑Fi (faut pas le dire à Dimitri!).
+      </p>
+      <div class="sparkles" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Bilan officiel de votre aventure</h2>
+        <div class="story">
+          <p>Vous avez survécu à une suite de calculs aussi <strong>ingénieux qu’inutiles</strong>, ce qui est une compétence rare et malheureusement très utile dans la vie numérique.</p>
+          <p>Vous avez manipulé des coordonnées géographiques écrites dans des formats conçus, semble‑t‑il, pour tester la patience humaine plutôt que pour aider l’humanité (sauf Viriya).</p>
+          <p>Vous avez aussi estimé le temps nécessaire pour télécharger la trilogie longue du Seigneur des Anneaux, ce qui prouve deux choses : vous savez calculer, et vous avez des des bons goûts en terme de films.</p>
+          <p>Vous avez dézippé un total de dix archives, ce qui a été très long, et pourtant, aucun ordinateur ni cerveau n’a explosé pendant l’opération. C’est déjà énorme.</p>
+        </div>
+
+        <div class="title-box">
+          <div class="badge" style="background: rgba(124,58,237,0.10); color: var(--accent-3);">Titre débloqué</div>
+          <div class="big-title">Technicien·ne suprême du ZIP et des calculs douteux</div>
+        </div>
+
+        <div class="skills">
+          <div class="skill"><strong>Compétence n°1</strong>Trouver un prof sur Google Maps</div>
+          <div class="skill"><strong>Compétence n°2</strong>Transformer un âge innocent en machine à retrouver 42</div>
+          <div class="skill"><strong>Compétence n°3</strong>Accepter qu’un film puisse peser plus lourd qu’un vieux PC</div>
+          <div class="skill"><strong>Compétence n°4</strong>Lire un texte beaucoup trop long, juste pour trouver MDR</div>
+        </div>
+      </article>
+
+      <aside class="card">
+        <h2>Top 5 des pensées probables</h2>
+        <ol class="thoughts">
+          <li><span class="num">1</span><span>« Attendez… pourquoi on utilise encore mon âge dans cette histoire ? »</span></li>
+          <li><span class="num">2</span><span>« Si le mot de passe final est encore 42, je demande un remboursement émotionnel. »</span></li>
+          <li><span class="num">3</span><span>« 81,7 Go ? On télécharge un film ou l'ensemble des vidéos TikTok ? »</span></li>
+          <li><span class="num">4</span><span>« Je crois que ce ZIP est plus protégé que mon compte Insta privé. »</span></li>
+          <li><span class="num">5</span><span>« S'il y a encore une archive dans cette archive, j'imite Parinya jusqu'à la fin de l'heure. »</span></li>
+          <li><span class="num">6</span><span>« C'est vraiment monsieur Amselem le mot de passe là ?»</span></li>
+          <li><span class="num">7</span><span>« Il a pris un truc le prof pour nous poursuivre dans le jeu comme ça ?»</span></li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="finale">
+      <p>Si vous lisez ce message, c’est que vous êtes allés jusqu’au bout. Vous avez donc le droit de regarder votre binôme avec gravité et de déclarer :</p>
+      <div class="quote">« Oui. Nous avons vaincu le fichier compressé. »</div>
+      <p class="footer-note">Succès débloqué : équipe officiellement apte à redémarrer un serveur imaginaire</p>
+      <div class="mini">Vous pouvez maintenant refermer ce fichier avec fierté, ou le montrer au professeur comme preuve de survie numérique.</div>
+      <div class="hyperpetit">Vous avez tout lu ? Bravo, retenez SNT2026 et écrivez-le dans votre prochain DS pour un petit bonus (mais ce sera pas plus qu'un point, il ne faut pas rêver).</div>
+    </section>
+  </main>
+</body>
+</html>
